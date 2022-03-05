@@ -34,6 +34,19 @@
 
 * 官方接口－PayPal支付
 
+* V免签支付  插件 iinine/VmqForZfaka
+
+* V免签支付  iinine/vmqphp
+* V免签客户端 iinine/vmqApk  
+* 支付宝解决方案 /szvone/vmqApk/issues/30
+* 支付宝无法监听原因：
+NeNotificationService2.class中的onNotificationPosted()方法，有这两句
+if (content.indexOf("通过扫码向你付款") != -1 || content.indexOf("成功收款") != -1)和String money = getMoney(content);
+经测试，支付宝10.1.95和10.1.80两个版本，分别是仅title和仅content含有上述关键字。而vmq1.8.1版本是判断的content，所以程序无法往下走，导致无法监听回调
+修改方法：
+将以上语句中的判断加上title的判断
+V修正支付宝版下载:https://www.lanzouw.com/ia8tH011jsej 密码:ejbs
+
 # 二、系统部署
 >**友情提示：很多人安装失败都是因为没有仔细看所有的wiki，所以请仔细看完所有的wiki再操作**
 
